@@ -3,7 +3,9 @@ class Cms::AllContentsController < ApplicationController
 
   navi_view "cms/main/navi"
 
+
   def index
+    
     respond_to do |format|
       format.html
       format.csv do
