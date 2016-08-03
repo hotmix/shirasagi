@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "cms_agents_nodes_page", type: :feature, dbscope: :example do
+describe "facility_agents_nodes_page", type: :feature, dbscope: :example do
   let(:site)   { cms_site }
   let(:layout) { create_cms_layout }
   let(:node)   { create :cms_node_page, layout_id: layout.id, filename: "node" }
@@ -18,6 +18,36 @@ describe "cms_agents_nodes_page", type: :feature, dbscope: :example do
       expect(page).to have_css(".pages")
       expect(page).to have_selector("article")
     end
-    
+
+    it "#index with kana" do
+      visit node.url.sub('/', SS.config.kana.location + '/')
+      expect(status_code).to eq 200
+      expect(page).to have_css(".pages")
+      expect(page).to have_selector("article")
+      expect(page).to have_selector("a[href='/node/item.html']")
+    end
+
+    it "#index with mobile" do
+      visit node.url.sub('/', site.mobile_location + '/')
+      expect(status_code).to eq 200
+      expect(page).to have_css(".pages")
+      expect(page).to have_selector(".tag-article")
+      expect(page).to have_selector("a[href='/mobile/node/item.html']")
+    end
+
+    it "#image_pages" do
+      visit node.url
+      expect(status_code).to eq 200
+      expect(page).to have_css(".pages")
+      expect(page).to have_selector("article")
+    end
+
+    it "#map_pages" do
+      visit node.url
+      expect(status_code).to eq 200
+      expect(page).to have_css(".pages")
+      expect(page).to have_selector("article")
+    end
+
   end
 end
