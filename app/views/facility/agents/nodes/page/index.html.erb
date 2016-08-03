@@ -14,7 +14,7 @@ $(window).on("load", function() {
   });
 });
 <% end %>
-
+<div class="facility_page">
 <% if @summary_image.present? %>
   <div class="summary-image image">
     <p>
@@ -64,3 +64,4 @@ $(window).on("load", function() {
   <% @cur_page = @merged_map %>
   <%= render file: "map/agents/addons/page/view/index" %>
 <% end %>
+</div>
