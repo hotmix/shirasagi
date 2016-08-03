@@ -3,6 +3,8 @@ SHIRASAGI
 
 SHIRASAGI is Contents Management System.
 
+[![Coverage Status](https://coveralls.io/repos/github/hotmix/shirasagi/badge.svg?branch=master)](https://coveralls.io/github/hotmix/shirasagi?branch=master)  
+
 Code Status
 -----------
 
