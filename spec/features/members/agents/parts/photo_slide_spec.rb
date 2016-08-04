@@ -12,11 +12,6 @@ describe "member_agents_parts_photo_slide", type: :feature, dbscope: :example do
     end
 
     it "#index" do
-
-      @cur_part
-
-      binding.pry
-
       visit node.url
 
       expect(status_code).to eq 200
