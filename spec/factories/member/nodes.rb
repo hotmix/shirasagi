@@ -11,6 +11,10 @@ FactoryGirl.define do
     facebook_client_secret unique_id.to_s
   end
 
+  factory :member_node, class: Member::Node::Mypage, traits: [:cms_node] do
+    shortcut :show
+  end
+
   factory :member_node_mypage, class: Member::Node::Mypage, traits: [:cms_node] do
     route "member/mypage"
   end
